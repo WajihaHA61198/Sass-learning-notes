@@ -1,0 +1,169 @@
+// @ VIDEO-2
+// body {
+//     background: aquamarine;
+//     ul {
+//         color: red;
+//         background: green;
+//         line-height: 30px;
+//     }
+//     div {
+//         width: 500px;
+//         height: 500px;
+//         border: 1px solid red;
+//     }
+// }
+// ------------------------------------------------
+// @ VIDEO-3 [variables]
+// .container {
+//     display: flex;
+//     width: 70%;
+//     margin: 0 auto;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+//     align-content: space-between;
+//     height: 60vh;
+// }
+// .box {
+//     width: 45%;
+//     height: 200px;
+//     border: 3px solid black;
+// }
+// 1----VARIABLES (colors applying here)
+$mycolors: teal;
+// h1 {
+//     // color: red;
+//     color: $mycolors;
+// }
+//
+// .box2 {
+//     // border: 3px solid red;
+//     border: 3px solid $mycolors;
+// }
+//
+// .box3 {
+//     // background: red;
+//     background: $mycolors;
+// }
+//
+// ul li {
+//     // color: red;
+//     color: $mycolors;
+// }
+// ------------------------------
+// @ VIDEO-4 [nesting]
+// .wrapper {
+//     background: yellow;
+//     h1 {
+//         color: white;
+//     }
+//     .navigation {
+//         background: red;
+//         li {
+//             margin-bottom: 50px;
+//             &:first-child {
+//                 margin-bottom: 10px;
+//             }
+//             a {
+//                 color: white;
+//             }
+//         }
+//     }
+// }
+//
+// .wrapper h1 {
+//     color: white;
+// }
+// .wrapper .navigation {
+//     background: red;
+// }
+// .wrapper .navigation li {
+//     margin-bottom: 50px;
+// }
+// .wrapper .navigation li:first-child {
+//     margin-bottom: 10px;
+// }
+// ------------------------------
+// @ VIDEO-5 [operators]
+// h1 {
+//     font-size: 25px + 5;
+//     font-size: 25px - 5;
+//     font-size: 25px * 5;
+//     font-size: (25px / 5);
+//     // same values should be insert (px, %, rem, em)
+// }
+//
+// .box {
+//     // width: 200px;
+//     // width: (100% / 3);
+//     width: (100% / 8);
+//     height: 250px;
+//     float: left;
+// }
+//
+// .box1 {
+//     background: red;
+// }
+// .box2 {
+//     background: grey;
+// }
+// .box3 {
+//     background: teal;
+// }
+//
+// ------------------------------
+// @ VIDEO-6 [partial & import]
+@import "nav";
+@import "header";
+@import "main";
+@import "aside";
+@import "footer";
+//
+// ------------------------------
+// @ VIDEO-7 [mixin & include]
+@mixin mynormallink($mycolors, $margin) {
+    text-decoration: none;
+    margin-right: $margin;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: $mycolors;
+}
+
+// .signup {
+//     font-size: 16px;
+//     @include mynormallink(blue, 80px);
+// }
+// .login {
+//     font-size: 25px;
+//     @include mynormallink(green, 5px);
+// }
+//
+// ------------------------------
+// @ VIDEO-8 [functions]
+@function wajiha($x, $y) {
+    @return $x / $y;
+}
+
+// button {
+//     width: wajiha(300, 2) * 1px;
+// }
+//
+// ------------------------------
+// @ VIDEO-9 [extend]
+%wajiha {
+    width: 200px;
+    height: 50px;
+    border: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 16px;
+    border: 5px;
+}
+
+.button-one {
+    @extend %wajiha;
+    background: lightgreen;
+}
+
+.button-two {
+    @extend %wajiha;
+    background: blue;
+}
